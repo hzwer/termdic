@@ -26,10 +26,13 @@ def look_up(word):
             pass
     print(mean.strip())
 
-if __name__ == '__main__':
+def main():
     args = sys.argv[1:]
     word = " ".join(args)
     if word:
         look_up(word)
     else:
         pass
+
+if __name__ == '__main__':
+    main()
