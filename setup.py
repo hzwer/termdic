@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-version = '0.0.1'
+version = '0.0.2'
 
 setup(name = 'termdic',
       version = version,
@@ -20,7 +20,7 @@ setup(name = 'termdic',
       ],
       entry_points={
         'console_scripts':[
-            'lk = termdic.termdic:main'
+            'tw = termdic.termdic:main'
         ]
       },     
 )
