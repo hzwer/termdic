@@ -20,7 +20,7 @@ def look_up(word):
     
     if len(ps) is 2:
         try:
-            print(colored('英{} 美{}'.format(ps[0], ps[1]), 'cyan'))
+            print(colored(u'英{0} 美{1}'.format(ps[0], ps[1]), 'cyan'))
         except:
             pass
     else:
@@ -32,7 +32,7 @@ def look_up(word):
     for line in mean:
         words = line.split('.', 1)
         words[0] += '.'
-        print('{}{}'.format(colored(words[0], 'green'), colored(words[1], 'blue')))
+        print(u'{0}{1}'.format(colored(words[0], 'green'), colored(words[1], 'blue')))
 
 def main():
     args = sys.argv[1:]
