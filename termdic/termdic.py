@@ -68,8 +68,6 @@ def main():
         if args[-1] == '-p':
             try:
                 os.system('say ' + str(word))
-            except:
-                print('Not supported')
 
 if __name__ == '__main__':
     main()
