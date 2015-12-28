@@ -1,5 +1,6 @@
 # coding: utf-8
 
+import os
 import re
 import sys
 import requests
@@ -24,7 +25,7 @@ def look_up(word):
             print(cl(u'英{0} 美{1}'.format(ps[0], ps[1]), 'cyan'))
     else:
         try:
-            print(cl(ps[0]), 'cyan')
+            print(cl(ps[0], 'cyan'))
         except:
             pass
     for line in mean:
@@ -38,13 +39,37 @@ def look_up(word):
             # phrase
 
 
+def print_version():
+    from termdic import __version__
+    print('termdic v{}'.format(__version__))
+    sys.exit(0)
+
+
+def print_usage():
+    print('usage: termdic [-v] [word] [word -p]')
+    sys.exit(0)
+
+
 def main():
     args = sys.argv[1:]
     word = " ".join(args)
+
+    args[-1] = args[-1].strip()
+    if args[-1][0] is '-':
+        if args[-1] == '-v' or args[-1] == '--version':
+            print_version()
+        elif args[-1] == '-p':
+            word = " ".join(args[:-1])
+        else:
+            print_usage()
+
     if word:
         look_up(word)
-    else:
-        pass
+        if args[-1] == '-p':
+            try:
+                os.system('say ' + str(word))
+            except:
+                print('Not supported')
 
 if __name__ == '__main__':
     main()
