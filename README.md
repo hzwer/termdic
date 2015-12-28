@@ -1,10 +1,12 @@
 # termdic
 
-基于python的命令行查词工具, 使用有道词典。
+![](example.png)
+
+基于python的命令行查词工具, 使用有道api。
 
 ##Installation 安装
 
-$ pip3 install termdic
+$ pip install termdic
 
 ##Usage 使用
 
