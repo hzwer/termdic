@@ -53,7 +53,8 @@ def print_usage():
 def main():
     args = sys.argv[1:]
     word = " ".join(args)
-
+    if len(args) == 0:
+        print_usage()
     args[-1] = args[-1].strip()
     if args[-1][0] is '-':
         if args[-1] == '-v' or args[-1] == '--version':
@@ -68,6 +69,8 @@ def main():
         if args[-1] == '-p':
             try:
                 os.system('say ' + str(word))
+            except:
+                pass
 
 if __name__ == '__main__':
     main()
