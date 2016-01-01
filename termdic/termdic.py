@@ -55,18 +55,24 @@ def main():
     word = " ".join(args)
     if len(args) == 0:
         print_usage()
-    args[-1] = args[-1].strip()
-    if args[-1][0] is '-':
-        if args[-1] == '-v' or args[-1] == '--version':
+    opt_pos = -1
+    if args[0][0] == '-':
+        opt_pos = 0
+    args[opt_pos] = args[opt_pos].strip()
+    if args[opt_pos][0] is '-':
+        if args[opt_pos] == '-v' or args[opt_pos] == '--version':
             print_version()
-        elif args[-1] == '-p':
-            word = " ".join(args[:-1])
+        elif args[opt_pos] == '-p':
+            if opt_pos == -1:
+                word = " ".join(args[:-1])
+            else:
+                word = " ".join(args[1:])
         else:
             print_usage()
 
     if word:
         look_up(word)
-        if args[-1] == '-p':
+        if args[opt_pos] == '-p':
             try:
                 os.system('say ' + str(word))
             except:
