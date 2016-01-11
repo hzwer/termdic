@@ -20,4 +20,9 @@ vt. 用言辞表达
 
 n. (Word)人名；(英)沃德
 
-$ tdic word -p 查询单词并发音(仅支持 Mac OS)
+$ tdic word -p 查询单词并发音
+(或$ tdic -p word)
+
+$ tdic -v 查询版本号
+
+$ tdic -h 查看帮助
