@@ -5,7 +5,6 @@ import re
 import sys
 import requests
 from termcolor import colored as cl
-import platform
 
 def look_up(word):
     url = 'http://dict.youdao.com/search?q='
@@ -74,7 +73,7 @@ def main():
         look_up(word)
         if args[opt_pos] == '-p':
             try:
-                if platform.system() == 'Darwin':
+                if sys.platform == 'darwin':
                     os.system('say ' + str(word))
                 else:
                     os.system('espeak ' + str(word))
