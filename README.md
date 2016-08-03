@@ -1,28 +1,33 @@
 # termdic
 
-![](example.png)
+![](example.png =350x)
 
 基于python的命令行查词工具, 使用有道api。
 
 ##Installation 安装
 
-$ pip install termdic
+>sudo pip install termdic
 
 ##Usage 使用
 
-$ tdic word
+>tdic word
 
-英[wɜːd] 美[wɝd]
+>[wɜːd]
 
-n. [语] 单词；话语；消息；诺言；命令
+>n. [语] 单词；话语；消息；诺言；命令
 
-vt. 用言辞表达
+>vt. 用言辞表达
 
-n. (Word)人名；(英)沃德
+>n. (Word)人名；(英)沃德
 
-$ tdic word -p 查询单词并发音
-(或$ tdic -p word)
+查询单词并发音
 
-$ tdic -v 查询版本号
+>tdic word -p
 
-$ tdic -h 查看帮助
+查询版本号
+
+>tdic -v 
+
+查看帮助
+>tdic -h
+
