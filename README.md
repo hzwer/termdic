@@ -1,6 +1,6 @@
 # termdic
 
-![](example.png =350x)
+<img src="example.png" width = "50%" />
 
 基于python的命令行查词工具, 使用有道api。
 
