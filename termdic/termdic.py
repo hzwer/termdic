@@ -3,8 +3,12 @@
 import os
 import re
 import sys
+import argparse
 import requests
 from termcolor import colored as cl
+
+# from termdic import __version__
+__version__ = '0.1.3'
 
 def look_up(word):
     url = 'http://dict.youdao.com/search?q='
@@ -20,7 +24,7 @@ def look_up(word):
         print('Can\'t find it')
         return
 
-    if len(ps) is 2:
+    if len(ps) == 2:
             print(cl(u'英{0} 美{1}'.format(ps[0], ps[1]), 'cyan'))
     else:
         try:
@@ -38,40 +42,21 @@ def look_up(word):
             # phrase
 
 
-def print_version():
-    from termdic import __version__
-    print('termdic v{}'.format(__version__))
-    sys.exit(0)
-
-
-def print_usage():
-    print('usage: termdic [-v] [word] [word -p]')
-    sys.exit(0)
-
-
 def main():
-    args = sys.argv[1:]
-    word = " ".join(args)
-    if len(args) == 0:
-        print_usage()
-    opt_pos = -1
-    if args[0][0] == '-':
-        opt_pos = 0
-    args[opt_pos] = args[opt_pos].strip()
-    if args[opt_pos][0] is '-':
-        if args[opt_pos] == '-v' or args[opt_pos] == '--version':
-            print_version()
-        elif args[opt_pos] == '-p':
-            if opt_pos == -1:
-                word = " ".join(args[:-1])
-            else:
-                word = " ".join(args[1:])
-        else:
-            print_usage()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', '--pronounce',
+                        action='store_true',
+                        help='pronounce the word')
+    parser.add_argument('-v', '--version',
+                        action='version',
+                        version='termdic v{}'.format(__version__))
+    parser.add_argument('word', type=str, nargs='+')
+    args = parser.parse_args()
+    word = " ".join(args.word)
 
     if word:
         look_up(word)
-        if args[opt_pos] == '-p':
+        if args.pronounce:
             try:
                 if sys.platform == 'darwin':
                     os.system('say ' + str(word))
