@@ -4,11 +4,11 @@
 
 基于python的命令行查词工具, 使用有道api。
 
-##Installation 安装
+## Installation 安装
 
 >sudo pip install termdic
 
-##Usage 使用
+## Usage 使用
 
 >tdic word
 
